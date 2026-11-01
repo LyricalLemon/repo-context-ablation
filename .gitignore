@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets and local settings
+.env
+*.token
+*.key
+*.pem
+
+# Model weights and caches (large, and downloaded on each machine)
+models/
+weights/
+*.safetensors
+*.bin
+*.gguf
+*.pt
+*.pth
+.cache/
+
+# Data: cloned repositories, benchmarks and derived indexes
+data/
+repos/
+indexes/
+
+# Raw run output. Only small summary tables in results/ are committed
+logs/
+runs/
+*.jsonl
+results/raw/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
