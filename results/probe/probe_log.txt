@@ -1,0 +1,23 @@
+finance         PyPortfolio/PyPortfolioOpt           MIT          files=  19 loc=  5719 internal=  4.0% external= 26.7%
+finance         ranaroussi/yfinance                  Apache-2.0   files=  34 loc= 14575 internal=  8.0% external= 10.2%
+finance         microsoft/qlib                       MIT          files= 250 loc= 62833 internal=  3.5% external= 16.0%
+finance         pmorissette/bt                       MIT          files=   4 loc=  6733 internal=  0.9% external= 14.2%
+finance         bukosabino/ta                        MIT          files=  13 loc=  5984 internal=  7.4% external= 16.7%
+finance         ranaroussi/quantstats                Apache-2.0   files=  12 loc= 12830 internal=  5.8% external= 12.1%
+finance         AI4Finance-Foundation/FinRL          MIT          files=  81 loc= 18677 internal=  3.3% external= 22.0%
+biology         biopython/biopython                  BSD-style    files= 329 loc=178993 internal=  5.0% external=  2.2%
+biology         scverse/scanpy                       BSD-style    files= 138 loc= 43749 internal= 12.6% external= 22.3%
+biology         scverse/anndata                      BSD-style    files=  53 loc= 19045 internal= 11.1% external=  9.7%
+biology         scikit-bio/scikit-bio                BSD-style    files= 166 loc= 89870 internal=  7.9% external= 17.3%
+biology         biotite-dev/biotite                  BSD-style    files= 214 loc= 66390 internal= 10.9% external= 15.2%
+biology         pysam-developers/pysam               MIT          files=  18 loc=  1949 internal=  0.1% external=  1.8%
+<unknown>:60: SyntaxWarning: invalid escape sequence '\d'
+<unknown>:284: SyntaxWarning: invalid escape sequence '\D'
+biology         MouseLand/cellpose                   BSD-style    files=  49 loc= 22159 internal=  4.2% external= 24.6%
+sustainability  PyPSA/PyPSA                          MIT          files=  90 loc= 46140 internal=  5.1% external= 12.0%
+sustainability  pvlib/pvlib-python                   BSD-style    files=  68 loc= 37733 internal=  7.1% external= 35.8%
+sustainability  e2nIEE/pandapower                    BSD-style    files= 383 loc=112108 internal= 10.3% external= 24.8%
+sustainability  oemof/oemof-solph                    other (CC0-1.0.txt) files=  65 loc= 17251 internal=  1.3% external= 37.5%
+sustainability  calliope-project/calliope            Apache-2.0   files=  39 loc= 14367 internal=  7.0% external= 12.6%
+sustainability  mlco2/codecarbon                     MIT          files= 149 loc= 22719 internal=  3.3% external= 23.2%
+sustainability  IAMconsortium/pyam                   Apache-2.0   files=  31 loc=  8944 internal=  9.2% external=  9.5%
