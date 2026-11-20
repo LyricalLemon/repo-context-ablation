@@ -17,8 +17,10 @@ env/
 *.pem
 
 # Model weights and caches (large, and downloaded on each machine)
-models/
-weights/
+# Anchored with a leading slash so they match only at the repository root,
+# not source packages such as src/rca/data/
+/models/
+/weights/
 *.safetensors
 *.bin
 *.gguf
@@ -27,9 +29,9 @@ weights/
 .cache/
 
 # Data: cloned repositories, benchmarks and derived indexes
-data/
-repos/
-indexes/
+/data/
+/repos/
+/indexes/
 
 # Raw run output. Only small summary tables in results/ are committed
 logs/
