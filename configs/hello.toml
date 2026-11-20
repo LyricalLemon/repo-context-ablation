@@ -1,0 +1,108 @@
+# Hello COM3001: made-up two-file tasks, each hiding one line that uses a name
+# defined in another file. AI-written (Claude Code, 20 Nov 2026), disclosed.
+#
+# The current file imports the module, not the name, so the module is visible
+# but the name itself must come from the other file. Names are invented so
+# neither model can have memorised them.
+#
+# prefix      the current file up to the cursor (ends with a newline)
+# line        the hidden line, including its trailing newline
+# targets     cross-file names in the hidden line whose bits are reported
+# definition  the file that defines them (the oracle condition)
+
+[random]
+# Unrelated code of similar length, for the random-context condition.
+path = "textutils/wrap.py"
+text = '''
+"""Small helpers for wrapping and padding report text."""
+
+import textwrap
+
+
+def wrap_paragraph(text: str, width: int = 72) -> str:
+    """Wrap a paragraph to the given width, keeping blank lines."""
+    return "\n".join(textwrap.wrap(text, width=width))
+
+
+def pad_right(label: str, width: int) -> str:
+    """Pad a label with spaces so a column lines up."""
+    return label + " " * max(0, width - len(label))
+'''
+
+[[tasks]]
+id = "function"
+targets = ["normalise_reading_v2"]
+definition_path = "sensors/calibrate.py"
+definition = '''
+"""Calibration helpers for the field sensor rig."""
+
+DEFAULT_GAIN = 1.0
+
+
+def normalise_reading_v2(raw: float, gain: float = DEFAULT_GAIN) -> float:
+    """Scale a raw ADC reading to volts using the second-generation curve."""
+    return (raw - 512.0) * gain / 1024.0
+'''
+current_path = "pipeline/ingest.py"
+prefix = '''
+"""Read raw samples from the logger and convert them to volts."""
+
+from sensors import calibrate
+
+
+def ingest(samples: list[float], gain: float) -> list[float]:
+    volts = []
+    for raw in samples:
+'''
+line = '''        value = calibrate.normalise_reading_v2(raw, gain=gain)
+'''
+
+[[tasks]]
+id = "class"
+targets = ["FluxBinner", "width_s", "min_count"]
+definition_path = "models/bins.py"
+definition = '''
+"""Binning of flux measurements over time."""
+
+
+class FluxBinner:
+    """Group flux measurements into fixed-width time bins."""
+
+    def __init__(self, width_s: float, min_count: int = 3):
+        self.width_s = width_s
+        self.min_count = min_count
+'''
+current_path = "analysis/summary.py"
+prefix = '''
+"""Summaries of flux records for the weekly report."""
+
+from models import bins
+
+
+def summarise(records: list[dict]) -> dict:
+'''
+line = '''    binner = bins.FluxBinner(width_s=30.0, min_count=5)
+'''
+
+[[tasks]]
+id = "constant"
+targets = ["MAX_PROBE_TEMPERATURE_K"]
+definition_path = "config/limits.py"
+definition = '''
+"""Safety limits for the probe hardware."""
+
+MIN_PROBE_TEMPERATURE_K = 233.15
+MAX_PROBE_TEMPERATURE_K = 373.15
+MAX_SUPPLY_VOLTAGE = 5.5
+'''
+current_path = "safety/checks.py"
+prefix = '''
+"""Checks run before each measurement cycle."""
+
+from config import limits
+
+
+def is_safe(temp_k: float) -> bool:
+'''
+line = '''    return temp_k < limits.MAX_PROBE_TEMPERATURE_K
+'''

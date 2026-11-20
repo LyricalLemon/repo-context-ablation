@@ -1,0 +1,19 @@
+# AI-written (Claude Code, 20 Nov 2026), disclosed in the AI-use log.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rca"
+version = "0.1.0"
+description = "Repository context ablation: retrieval and token-level measurement for code completion"
+requires-python = ">=3.12"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "tokenizers: needs the pinned Hugging Face tokenisers in the local cache (lab machines only)",
+]
