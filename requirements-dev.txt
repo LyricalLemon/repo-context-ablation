@@ -1,0 +1,4 @@
+# Test-only dependencies, never imported by the pipeline (src/rca).
+# bm25s is the independent reference that tests/test_bm25.py checks rca.bm25 against.
+-r requirements.txt
+bm25s==0.3.16
